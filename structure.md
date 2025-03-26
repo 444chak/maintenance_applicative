@@ -1,6 +1,30 @@
 # Pixel Tracer Architecture
 
-## :flag_us: Pixel Tracer Architecture
+- [Pixel Tracer Architecture](#pixel-tracer-architecture)
+  - [:us: Pixel Tracer Architecture](#us-pixel-tracer-architecture)
+  - [Core Data Structures](#core-data-structures)
+    - [Area (`struct area`)](#area-struct-area)
+    - [Layer (`struct layer`)](#layer-struct-layer)
+    - [Point (`struct point`) - FR](#point-struct-point---fr)
+    - [Command (`struct command`)](#command-struct-command)
+    - [List Implementation (`lnode_`)](#list-implementation-lnode_)
+  - [Main Component](#main-component)
+    - [Pixel Tracer (`struct pixel_tracer`)](#pixel-tracer-struct-pixel_tracer)
+  - [Rendering Pipeline](#rendering-pipeline)
+  - [Relationships](#relationships)
+  - [:fr: Architecture de Pixel Tracer](#fr-architecture-de-pixel-tracer)
+  - [Structures de Données Principales](#structures-de-données-principales)
+    - [Zone (`struct area`)](#zone-struct-area)
+    - [Calque (`struct layer`)](#calque-struct-layer)
+    - [Point (`struct point`)](#point-struct-point)
+    - [Commande (`struct command`)](#commande-struct-command)
+    - [Implémentation de Liste (`lnode_`)](#implémentation-de-liste-lnode_)
+  - [Composant Principal](#composant-principal)
+    - [Pixel Tracer (`struct pixel_tracer`) - FR](#pixel-tracer-struct-pixel_tracer---fr)
+  - [Pipeline de Rendu](#pipeline-de-rendu)
+  - [Relations](#relations)
+
+## :us: Pixel Tracer Architecture
 
 ## Core Data Structures
 
@@ -25,7 +49,7 @@
 - Supports blending modes for interaction with other layers
 - Contains metadata like creation timestamp and last modification
 
-### Point (`struct point`)
+### Point (`struct point`) - FR
 
 - Fundamental structure representing a position in 2D space (x, y coordinates)
 - Supports floating-point precision for anti-aliasing and smooth transformations
@@ -87,7 +111,7 @@
 
 This architecture follows a layered approach where rendering happens through a stack of layers, contained within defined areas, all orchestrated by the main pixel tracer component. The design emphasizes flexibility, extensibility, and performance for real-time character-based graphics.
 
-## :flag_fr: Architecture de Pixel Tracer
+## :fr: Architecture de Pixel Tracer
 
 ## Structures de Données Principales
 
@@ -142,7 +166,7 @@ This architecture follows a layered approach where rendering happens through a s
 
 ## Composant Principal
 
-### Pixel Tracer (`struct pixel_tracer`)
+### Pixel Tracer (`struct pixel_tracer`) - FR
 
 - Structure centrale contrôlant l'application
 - Gère les zones, calques et le traitement des commandes via des gestionnaires dédiés
