@@ -34,6 +34,40 @@ The project appears to be a C-based application with:
 - Core functionality for pixel tracing
 - Documentation using standard Doxygen practices
 
+You can find the project detailled structure [here](./STRUCTURE.md).
+
+## Commands
+
+The following commands are available in Pixel Tracer's vector text-based editor:
+
+### Control Commands
+
+- `plot` - Draw screen
+- `clear` - Clear screen
+- `exit` - Exit the program
+
+### Draw Shapes
+
+- `point px py` - Create a point at position (px, py)
+- `line x1 y1 x2 y2` - Draw a line from (x1, y1) to (x2, y2)
+- `square x1 y1 l` - Draw a square at (x1, y1) with length l
+- `rectangle x1 y1 w h` - Draw a rectangle at (x1, y1) with width w and height h
+- `circle x y r` - Draw a circle with center at (x, y) and radius r
+- `polygon x1 y1 x2 y2 ...` - Draw a polygon with specified points
+- `curve x1 y1 x2 y2 x3 y3 x4 y4` - Draw a Bezier curve
+
+### Draw Manager
+
+- `list {layers, arias, shapes}` - List elements by category
+- `select {aria, layer} {id}` - Select an aria or layer by ID
+- `delete {aria, layer, shape} {id}` - Delete an element by category and ID
+- `new {aria, layer}` - Create a new aria or layer
+
+### Settings
+
+- `set char {border, background} ascii_code` - Set character properties
+- `set layer {visible, unvisible} {id}` - Toggle layer visibility
+
 ## License
 
 This project is distributed under the terms of the GNU General Public License (GPL), as indicated in the LICENSE file.
