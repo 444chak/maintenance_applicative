@@ -1,7 +1,7 @@
 #include "pixel_tracer.h"
 
-
-void init_app(Pixel_tracer_app * app) {
+void init_app(Pixel_tracer_app *app)
+{
     app->list_area = create_area_list();
     Area *area = create_area(80, 40, get_next_id(), "Area1");
     add_area_to_list(app->list_area, area);
@@ -15,7 +15,8 @@ void init_app(Pixel_tracer_app * app) {
     app->current_shape = NULL;
 }
 
-void destry_app(Pixel_tracer_app * app) {
+void destry_app(Pixel_tracer_app *app)
+{
     delete_area_list(app->list_area);
     app->current_area = NULL;
     app->current_layer = NULL;

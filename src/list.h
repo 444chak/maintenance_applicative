@@ -1,99 +1,123 @@
-#ifndef _LIST_H_
-#  define _LIST_H_
+/**
+ * @file list.h
+ * @brief This file contains the definition of the list structure and the functions to manipulate it.
+ */
 
+#ifndef _LIST_H_
+#define _LIST_H_
 
 /**
- * Élément lnode
+ * @brief A node of the list
  */
-typedef struct lnode_ {
+typedef struct lnode_
+{
     void *data;
     struct lnode_ *prev;
     struct lnode_ *next;
 } lnode;
 
-
 /**
- * Une liste
+ * @brief The list structure
  */
-typedef struct list_ {
+typedef struct list_
+{
     lnode *head;
     lnode *tail;
 } list;
 
-
 /**
- * création d'un noeud
+ * @brief Create a node
+ * @param dat The data of the node
+ * @return The node created
  */
 lnode *lst_create_lnode(void *dat);
 
 /**
- * crée la liste et retourne un pointeur sur cette dernière
+ * @brief Create a list
+ * @return The list created
  */
 list *lst_create_list();
 
 /**
- * supprimer la liste
+ * @brief Delete a list
+ * @param lst The list to delete
  */
-void lst_delete_list(list * lst);
+void lst_delete_list(list *lst);
 
 /**
- * Insère pnew au début de la liste lst
+ * @brief Insert pnew at the head of the list
+ * @param lst The list
+ * @param pnew The node to insert
  */
-void lst_insert_head(list * lst, lnode * pnew);
+void lst_insert_head(list *lst, lnode *pnew);
 
 /**
- * Insère pnew à la fin de la liste lst
+ * @brief Insert pnew at the tail of the list
+ * @param lst The list
+ * @param pnew The node to insert
  */
-void lst_insert_tail(list * lst, lnode * pnew);
+void lst_insert_tail(list *lst, lnode *pnew);
 
 /**
- * Insère l'élément pnew juste après ptr dans la liste lst
+ * @brief Insert pnew after ptr
+ * @param lst The list
+ * @param pnew The node to insert
+ * @param ptr The node after which to insert
  */
-void lst_insert_after(list * lst, lnode * pnew, lnode * ptr);
+void lst_insert_after(list *lst, lnode *pnew, lnode *ptr);
 
 /**
- * Supprime le premier élément de la liste 
+ * @brief Delete the first element of the list
+ * @param lst The list
  */
-void lst_delete_head(list * lst);
-
+void lst_delete_head(list *lst);
 
 /**
- * Supprime le dernier élément de la liste 
+ * @brief Delete the last element of the list
+ * @param lst The list
  */
-void lst_delete_tail(list * lst);
-
+void lst_delete_tail(list *lst);
 
 /**
- * Supprime le lnode pointé par ptr
+ * @brief Delete a node of the list
+ * @param lst The list
+ * @param ptr The node to delete
  */
-void lst_delete_lnode(list * lst, lnode * ptr);
-
+void lst_delete_lnode(list *lst, lnode *ptr);
 
 /**
- * Supprime tous les éléments de la liste lst
+ * @brief Erase the list
+ * @param lst The list
  */
-void lst_erase(list * lst);
-
+void lst_erase(list *lst);
 
 /**
- * retourne le premier node s'il existe sinon NULL
+ * @brief Get the first element
+ * @param lst The list
+ * @return The first element
  */
-lnode *get_first_node(list * lst);
+lnode *get_first_node(list *lst);
 
 /**
- * retourne le denier node s'il existe sinon NULL
+ * @brief Get the last node
+ * @param lst The list
+ * @return The last node
  */
-lnode *get_last_node(list * lst);
+lnode *get_last_node(list *lst);
 
 /**
- * retourne le node  suivant
+ * @brief Get the next element
+ * @param lst The list
+ * @param lnode The node
+ * @return The next node
  */
-lnode *get_next_node(list * lst, lnode * lnode);
+lnode *get_next_node(list *lst, lnode *lnode);
 
 /**
- * retourne le node precedent
+ * @brief Get the previous element
+ * @param lst The list
+ * @param lnode The node
  */
-void *get_previous_elem(list * lst, lnode * lnode);
-
+void *get_previous_elem(list *lst, lnode *lnode);
 
 #endif
