@@ -3,6 +3,9 @@
 !/lib
 !/win
 
+# Application specific files
+id.txt
+
 # Compiled source #
 ###################
 *.com
