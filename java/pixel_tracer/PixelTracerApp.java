@@ -505,4 +505,19 @@ public class PixelTracerApp {
                 3 * c * t * t * t1 +
                 d * t * t * t);
     }
+
+    /**
+     * Redimensionne la zone courante.
+     * 
+     * @param newWidth  Nouvelle largeur
+     * @param newHeight Nouvelle hauteur
+     * @return true si le redimensionnement a réussi, false sinon
+     */
+    public boolean resizeCurrentArea(int newWidth, int newHeight) {
+        if (currentArea == null || newWidth <= 0 || newHeight <= 0) {
+            return false;
+        }
+        currentArea.resize(newWidth, newHeight);
+        return true;
+    }
 }

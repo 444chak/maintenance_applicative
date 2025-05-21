@@ -180,6 +180,18 @@ public class CommandProcessor {
                 }
                 return 9; // Aucune couche active
 
+            case "resize":
+                if (intParams.size() < 2)
+                    return 3; // Paramètres insuffisants
+
+                if (app.getCurrentArea() != null) {
+                    if (app.resizeCurrentArea(intParams.get(0), intParams.get(1))) {
+                        return 0;
+                    }
+                    return 8; // Erreur de redimensionnement
+                }
+                return 9; // Aucune zone active
+
             case "polygon":
                 if (intParams.size() < 4 || intParams.size() % 2 != 0)
                     return 3; // Paramètres insuffisants ou nombre impair
@@ -491,6 +503,9 @@ public class CommandProcessor {
         System.out.println("\t==== Configuration ====");
         System.out.println("\tset char {border, background} ascii_code : change le caractère utilisé");
         System.out.println("\tset layer {visible, invisible} {id} : change la visibilité d'une couche");
+
+        System.out.println("\t==== Autres commandes ====");
+        System.out.println("\tresize {width} {height} : redimensionne la zone courante");
     }
 
     /**

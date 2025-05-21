@@ -33,8 +33,22 @@ The project appears to be a C-based application with:
 
 - Core functionality for pixel tracing
 - Documentation using standard Doxygen practices
+- Java implementation available in the `java` directory
 
 You can find the project detailled structure [here](./STRUCTURE.md).
+
+## Running the Java Version
+
+To run the Java version of Pixel Tracer:
+
+1. Navigate to the `java` directory
+2. Run the `run.bat` script:
+
+   ```bash
+   run.bat
+   ```
+
+This will compile and execute the Java application.
 
 ## Commands
 

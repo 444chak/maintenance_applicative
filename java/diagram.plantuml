@@ -1,0 +1,132 @@
+@startuml
+
+' Classes principales
+class PixelTracerApp {
+    - areas: List<Area>
+    - currentArea: Area
+    - currentLayer: Layer
+    - currentShape: Shape
+    + initApp()
+    + destroy()
+    + renderCurrentArea()
+}
+
+class Area {
+    - id: int
+    - name: String
+    - width: int
+    - height: int
+    - layers: List<Layer>
+    - grid: char[][]
+    + clearGrid()
+    + resize(int, int)
+}
+
+class Layer {
+    - id: int
+    - name: String
+    - visible: boolean
+    - shapes: List<Shape>
+    + addShape(Shape)
+    + removeShape(Shape)
+}
+
+abstract class Shape {
+    - id: long
+    - shapeType: ShapeType
+    - color: Color
+    - thickness: float
+    - rotation: double
+    - fill: boolean
+    + {abstract} toString()
+}
+
+class Point {
+    - posX: int
+    - posY: int
+}
+
+' Classes de formes
+class PointShape {
+    - point: Point
+}
+
+class LineShape {
+    - p1: Point
+    - p2: Point
+}
+
+class SquareShape {
+    - origin: Point
+    - length: int
+}
+
+class RectangleShape {
+    - origin: Point
+    - width: int
+    - height: int
+}
+
+class CircleShape {
+    - center: Point
+    - radius: int
+}
+
+class PolygonShape {
+    - points: List<Point>
+}
+
+class CurveShape {
+    - p1: Point
+    - p2: Point
+    - p3: Point
+    - p4: Point
+}
+
+class IdGenerator {
+    - {static} currentId: long
+    + {static} getNextId(): long
+    + {static} saveId()
+    + {static} loadId()
+}
+
+' Énumérations
+enum ShapeType {
+    POINT
+    LINE
+    SQUARE
+    RECTANGLE
+    CIRCLE
+    POLYGON
+    CURVE
+}
+
+enum Color {
+    BLACK
+    WHITE
+    RED
+    GREEN
+}
+
+' Relations
+PixelTracerApp "1" *-- "many" Area
+Area "1" *-- "many" Layer
+Layer "1" *-- "many" Shape
+Shape <|-- PointShape
+Shape <|-- LineShape
+Shape <|-- SquareShape
+Shape <|-- RectangleShape
+Shape <|-- CircleShape
+Shape <|-- PolygonShape
+Shape <|-- CurveShape
+PointShape o-- Point
+LineShape o-- Point
+SquareShape o-- Point
+RectangleShape o-- Point
+CircleShape o-- Point
+PolygonShape o-- "many" Point
+CurveShape o-- "many" Point
+Shape --> ShapeType
+Shape --> Color
+
+@enduml
