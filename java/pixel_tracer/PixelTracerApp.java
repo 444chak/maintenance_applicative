@@ -224,9 +224,6 @@ public class PixelTracerApp {
         if (currentArea == null || shape == null)
             return;
 
-        int width = currentArea.getWidth();
-        int height = currentArea.getHeight();
-
         switch (shape.getShapeType()) {
             case POINT:
                 renderPoint((PointShape) shape);
