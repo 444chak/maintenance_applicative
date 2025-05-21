@@ -13,26 +13,25 @@ Cette application est une conversion en Java du projet original Pixel Tracer éc
 ## Prérequis
 
 * Java Development Kit (JDK) 8 ou supérieur
-* Apache Ant (optionnel, pour la compilation avec le fichier build.xml)
 
 ## Compilation et exécution
 
-### Avec Apache Ant
+### Méthode simple (avec script)
 
-Si vous avez Apache Ant installé, la compilation et l'exécution sont très simples :
+Pour compiler et exécuter l'application, il suffit d'utiliser le script `run.bat` :
 
 ```bash
 # À la racine du projet Java
-ant run
+run.bat
 ```
 
-Pour nettoyer les fichiers générés :
+Le script va :
 
-```bash
-ant clean
-```
+1. Créer le dossier `build` s'il n'existe pas
+2. Compiler tous les fichiers Java
+3. Exécuter l'application
 
-### Sans Apache Ant
+### Méthode manuelle
 
 Vous pouvez également compiler et exécuter manuellement :
 
@@ -41,7 +40,7 @@ Vous pouvez également compiler et exécuter manuellement :
 mkdir -p build
 
 # Compilation
-javac -d build -sourcepath pixel_tracer pixel_tracer/*.java
+javac -d build pixel_tracer/*.java
 
 # Exécution
 java -cp build pixel_tracer.PixelTracerApp
