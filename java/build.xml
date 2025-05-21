@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="PixelTracer" default="run" basedir=".">
+    <description>
+        Fichier de construction pour le projet Pixel Tracer
+    </description>
+    
+    <!-- Définition des propriétés globales -->
+    <property name="src" location="pixel_tracer"/>
+    <property name="build" location="build"/>
+    <property name="dist" location="dist"/>
+    <property name="main-class" value="pixel_tracer.PixelTracerApp"/>
+    
+    <!-- Initialisation -->
+    <target name="init">
+        <mkdir dir="${build}"/>
+    </target>
+    
+    <!-- Compilation -->
+    <target name="compile" depends="init" description="Compilation des sources">
+        <javac srcdir="${src}" destdir="${build}" includeantruntime="false">
+            <compilerarg value="-Xlint:unchecked"/>
+        </javac>
+    </target>
+    
+    <!-- Création du jar -->
+    <target name="jar" depends="compile" description="Génération du fichier JAR">
+        <mkdir dir="${dist}"/>
+        <jar destfile="${dist}/PixelTracer.jar" basedir="${build}">
+            <manifest>
+                <attribute name="Main-Class" value="${main-class}"/>
+            </manifest>
+        </jar>
+    </target>
+    
+    <!-- Exécution -->
+    <target name="run" depends="jar" description="Exécution de l'application">
+        <java jar="${dist}/PixelTracer.jar" fork="true"/>
+    </target>
+    
+    <!-- Nettoyage -->
+    <target name="clean" description="Nettoyage des fichiers générés">
+        <delete dir="${build}"/>
+        <delete dir="${dist}"/>
+    </target>
+</project>
